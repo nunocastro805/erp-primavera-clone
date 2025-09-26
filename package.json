@@ -1,0 +1,9 @@
+{
+  "name": "erp-primavera-clone-updated",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run start:backend & npm run start:frontend",
+    "start:backend": "cd backend && npm run dev",
+    "start:frontend": "cd frontend && npm run dev"
+  }
+}
