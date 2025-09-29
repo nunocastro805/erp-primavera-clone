@@ -229,10 +229,14 @@ export default function Products() {
           <DataGrid
             rows={products}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 5 },
+              },
+            }}
+            pageSizeOptions={[5]}
             checkboxSelection
-            disableSelectionOnClick
+            disableRowSelectionOnClick
           />
         </Paper>
       </Box>
