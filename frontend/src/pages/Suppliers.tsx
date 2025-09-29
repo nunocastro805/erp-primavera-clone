@@ -186,13 +186,23 @@ export default function Suppliers() {
           <Typography variant="h6" gutterBottom>
             Adicionar Fornecedor
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, mb: 2, flexWrap: 'wrap' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 2,
+              mb: 2,
+              flexWrap: 'wrap',
+              '& > *': { flex: { sm: 1 } }
+            }}
+          >
             <TextField
               label="Nome"
               value={name}
               onChange={(e) => setName(e.target.value)}
               variant="outlined"
               size="small"
+              fullWidth
             />
             <TextField
               label="Email"
@@ -200,6 +210,7 @@ export default function Suppliers() {
               onChange={(e) => setEmail(e.target.value)}
               variant="outlined"
               size="small"
+              fullWidth
             />
             <TextField
               label="Telefone"
@@ -207,6 +218,7 @@ export default function Suppliers() {
               onChange={(e) => setPhone(e.target.value)}
               variant="outlined"
               size="small"
+              fullWidth
             />
             <TextField
               label="Endereço"
@@ -214,8 +226,9 @@ export default function Suppliers() {
               onChange={(e) => setAddress(e.target.value)}
               variant="outlined"
               size="small"
+              fullWidth
             />
-            <Button variant="contained" onClick={add}>
+            <Button variant="contained" onClick={add} sx={{ minWidth: { xs: '100%', sm: 'auto' } }}>
               Adicionar
             </Button>
           </Box>

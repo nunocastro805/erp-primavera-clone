@@ -70,9 +70,9 @@ export default function Products() {
   };
 
   const columns: GridColDef[] = [
-    { field: 'name', headerName: 'Nome', width: 200 },
-    { field: 'price', headerName: 'Preço', width: 150, type: 'number' },
-    { field: 'stock', headerName: 'Stock', width: 150, type: 'number' },
+    { field: 'name', headerName: 'Nome', minWidth: 150, flex: 1 },
+    { field: 'price', headerName: 'Preço', minWidth: 100, flex: 0.5, type: 'number' },
+    { field: 'stock', headerName: 'Stock', minWidth: 100, flex: 0.5, type: 'number' },
   ];
 
   const drawer = (
@@ -185,13 +185,22 @@ export default function Products() {
           <Typography variant="h6" gutterBottom>
             Adicionar Produto
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 2,
+              mb: 2,
+              '& > *': { flex: { sm: 1 } }
+            }}
+          >
             <TextField
               label="Nome"
               value={name}
               onChange={(e) => setName(e.target.value)}
               variant="outlined"
               size="small"
+              fullWidth
             />
             <TextField
               label="Preço"
@@ -200,6 +209,7 @@ export default function Products() {
               onChange={(e) => setPrice(e.target.value)}
               variant="outlined"
               size="small"
+              fullWidth
             />
             <TextField
               label="Stock"
@@ -208,8 +218,9 @@ export default function Products() {
               onChange={(e) => setStock(e.target.value)}
               variant="outlined"
               size="small"
+              fullWidth
             />
-            <Button variant="contained" onClick={add}>
+            <Button variant="contained" onClick={add} sx={{ minWidth: { xs: '100%', sm: 'auto' } }}>
               Adicionar
             </Button>
           </Box>
